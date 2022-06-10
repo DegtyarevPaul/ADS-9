@@ -16,36 +16,33 @@ class BST {
   return depth;
   }
   int searchNode(Node*, T) {
-    if (root == nullptr)
+    if (root == nullptr) {
       return 0;
-    else if (root->value < value) {
+    } else if (root->value < value) {
       return searchNode(root->right, value);
-    }
-    else if (root->value > value) {
+    } else if (root->value > value) {
       return searchNode(root->left, value);
     } else {
       return root->count;
     }
   }
-  Node* addNode(Node*, T)
-  {
+  Node* addNode(Node*, T) {
     if (root == nullptr) {
       root = new Node;
       root->value = value;
       root->count = 1;
       root->left = root->right = nullptr;
-   }
-   else if (root->value < value) {
-     root->right = addNode(root->right, value);
-   }
-   else if (root->value > value) {
-     root->left = addNode(root->left, value);
-   } else {
-     root->count++;
-   }
-    return root;
+    } else if (root->value < value) {
+      root->right = addNode(root->right, value);
+    } else if (root->value > value) {
+      root->left = addNode(root->left, value);
+    } else {
+      root->count++;
+    }
+      return root;
   }
   Node* root;
+
  public:
   BST() :root(nullptr) {}
   void add(T) {
